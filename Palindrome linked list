@@ -1,0 +1,28 @@
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        // if the list has only one or null elements then it's a pla.
+        if(head == null|| head.next == null){
+            return true;
+        } 
+        //create a array list
+        List<Integer> arr = new ArrayList<>();
+        //Traverse the linked list.
+//While traversing, add each element of the linked list to an ArrayList.
+       while(head != null){
+           arr.add(head.val);
+           head = head.next;
+       }
+       //checking wether it's pla. or not by creating two pointer techinqe
+       int slow = 0;
+       int fast = arr.size()-1;//The size() method of the List interface in Java is used to get the number of elements in this list. That is, the list size() method returns the count of elements present in this list container.
+       while(slow < fast){
+           if(arr.get(slow)!= arr.get(fast)){
+                //Array.get() is an inbuilt method in Java and is used to return the element at a given index from the specified Array.
+               return false;
+           }
+           slow++ ;
+           fast--;
+       }
+      return true;
+    }
+}
